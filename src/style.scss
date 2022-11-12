@@ -1,0 +1,8 @@
+@import url('./reset.scss');
+@import url('./components/Header/style.scss');
+@import url('./components/SearchBar/style.scss');
+
+.App {
+    background-color: #f3f3f3;
+    min-height: 100vh;
+}

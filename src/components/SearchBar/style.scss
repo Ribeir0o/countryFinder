@@ -1,0 +1,21 @@
+.search-bar{
+    & input{
+        border: var(--border);
+        width: 100%;
+        height: 35px;
+        margin-top: 20px;
+        padding-left: 10px;
+        background-color: var(--light-color);
+        &::placeholder{
+            color: var(--dark-color);
+        }
+    }
+    
+    & select{
+        border: var(--border);
+        width: 50%;
+        height: 25px;
+        margin-top: 5px;
+        background-color: var(--light-color);
+    }
+}

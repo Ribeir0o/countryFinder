@@ -1,0 +1,26 @@
+.header{
+    background-color: var(--light-color);
+    width: 100vw;
+    height: 9vh;
+    border-bottom: var(--border);
+    padding: 0 20px;
+    color: var(--dark-color);
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & span{
+        color: var(--red);
+    }
+
+    &__darkmode{
+        position: relative;
+        &::before {
+            content: url('../../assets/img/moon.svg');
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            left: -20px;  
+        }
+    }
+}
