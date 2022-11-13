@@ -4,16 +4,31 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
+    overflow: hidden;
+    height: 50px;
+    transition: height .25s;
+    position: relative;
+    color: $dark-color;
+
+    &\--expand{
+        height: 120px;
+    }
+
     &__header{
         display: flex;
-        width: 50%;
+        align-items: center;
         margin-bottom: 10px;
     }
     &__name{
-        align-self: end;
+        line-height: 1.2;
     }
     &__flag{
         max-height: 30px;
         margin-right: 10px;
+        border: 1px solid $dark-color;
+    }
+    &__dropdown{
+        position: absolute;
+        right: 20px;
     }
 }

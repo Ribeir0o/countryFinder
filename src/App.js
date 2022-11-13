@@ -8,7 +8,7 @@ const client = axios.create({
   baseURL: "https://restcountries.com/v3.1/"
 })
 function App() {
-  const [filterCountries, setFilterCountries] = useState({filterName: "", filterRegion: null});
+  const [filterCountries, setFilterCountries] = useState({filterName: "", filterRegion: ""});
   const [allCountries, setAllCountries] = useState([]);
 
   useEffect(()=>{
