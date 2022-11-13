@@ -1,16 +1,16 @@
 .header{
-    background-color: var(--light-color);
+    background-color: $light-color;
     width: 100vw;
     height: 9vh;
-    border-bottom: var(--border);
+    border-bottom: $border;
     padding: 0 20px;
-    color: var(--dark-color);
+    color: $dark-color;
     font-family: 'Quicksand', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
     & span{
-        color: var(--red);
+        color: $red;
     }
 
     &__darkmode{

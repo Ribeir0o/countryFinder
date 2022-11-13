@@ -1,8 +1,13 @@
-@import url('./reset.scss');
-@import url('./components/Header/style.scss');
-@import url('./components/SearchBar/style.scss');
-
+@import './reset.scss';
+@import './components/Header/style.scss';
+@import 'components/SearchBar/style.scss';
+@import 'components/Card/style.scss';
 .App {
     background-color: #f3f3f3;
     min-height: 100vh;
+}
+
+.card__container {
+    width: 100%;
+    margin-top: 20px;
 }
