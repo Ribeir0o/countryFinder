@@ -1,6 +1,6 @@
 .header{
     background-color: $light-color;
-    width: 100vw;
+    max-width: 100vw;
     height: 9vh;
     border-bottom: $border;
     padding: 0 20px;
@@ -9,18 +9,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    & h1{
+        user-select: none;
+    }
+
     & span{
         color: $red;
     }
+    &__themeicon{
+        width: 1em;
+        height: auto;
+    }
+}
 
-    &__darkmode{
-        position: relative;
-        &::before {
-            content: url('../../assets/img/moon.svg');
-            width: 14px;
-            height: 14px;
-            position: absolute;
-            left: -20px;  
+@media screen and (min-width:1440px) {
+    .header{
+        padding: 0 50px;
+        & h1, span{
+            font-size: 1.5rem;
         }
     }
 }

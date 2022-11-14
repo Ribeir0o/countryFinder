@@ -14,8 +14,22 @@
     & select{
         border: $border;
         width: 50%;
-        height: 25px;
+        height: 35px;
+        padding: 4px 4px 4px 10px;
         margin-top: 5px;
         background-color: $light-color;
+        color: $dark-color;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .search-bar{
+        & input{
+            width: 50%;
+            margin-right: 10px;
+        }
+        & select{
+            width: 15%;
+        }
     }
 }

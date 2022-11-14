@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import Card from "./components/Card";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useRef} from "react";
 import axios from "axios";
 
 const client = axios.create({
@@ -10,11 +10,15 @@ const client = axios.create({
 function App() {
   const [filterCountries, setFilterCountries] = useState({filterName: "", filterRegion: ""});
   const [allCountries, setAllCountries] = useState([]);
+  const fetchDataRef = useRef(false);
 
   useEffect(()=>{
-    client.get("all").then(res =>{
-      setAllCountries(res.data);
-    })
+    if(!fetchDataRef.current){
+      client.get("all").then(res =>{
+        setAllCountries(res.data);
+      }).catch(error => console.log(error))
+      fetchDataRef.current = true;
+    }
   }, []);
 
   const handleFilterName = function (text){
@@ -25,10 +29,11 @@ function App() {
     setFilterCountries((prevState) => ({...prevState, filterRegion: region}))
   }
 
+  
   return (
     <div className="App">
       <Header/>
-      <main style={{padding: "0 20px"}}>
+      <main className="main__app">
         <SearchBar onFilterNameChange = {handleFilterName} onFilterRegionChange = {handleFilterRegion}/>
         <div className="card__container">
           {allCountries.map(country =>{

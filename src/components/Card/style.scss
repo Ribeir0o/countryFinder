@@ -11,7 +11,7 @@
     color: $dark-color;
 
     &\--expand{
-        height: 120px;
+        height: 130px;
     }
 
     &__header{
@@ -29,6 +29,36 @@
     }
     &__dropdown{
         position: absolute;
-        right: 20px;
+        right: 10px;
+        color: $dark-color;
     }
+
+    & p {
+        margin-bottom: 5px;
+    }
+}
+
+
+@media screen and (min-width: 1440px) {
+    .card{
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        &__dropdown{
+            display: none;
+        }
+        &__header{
+            flex-direction: column;
+        }
+        &__name{
+            width: 35%;
+            margin-top: 5px;
+            text-align: center;
+        }
+        &__flag{
+            width: 100%;
+            margin: 0;
+            max-height: initial;
+        }
+    }    
 }
