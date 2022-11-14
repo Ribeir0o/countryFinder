@@ -1,7 +1,7 @@
 <h1 align="center"> <img height="40px" src="./src/img/countryFinder-img.png"/> <h1/>
 
-<img width= "54%" src="./src/img/design-web.png" alt="web image"/>
-<img src="./src/img/design-mobile.png" alt="mobile image"/>
+<img width="60%" src="./src/img/design-web.png" alt="web image"/>
+<img width="30%" src="./src/img/design-mobile.png" alt="mobile image"/>
 
 # Links
 
