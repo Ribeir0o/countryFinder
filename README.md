@@ -1,4 +1,4 @@
-<h1 align="center"> <img height="40px" src="./src/img/countryFinder-img.png"/> <h1/>
+<h1 align="center"> CountryFinder <h1/>
 
 <img width="60%" src="./src/img/design-web.png" alt="web image"/>
 <img width="30%" src="./src/img/design-mobile.png" alt="mobile image"/>
