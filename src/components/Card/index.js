@@ -17,7 +17,7 @@ function Card({countryInfo}){
               <h1 className="card__name">{countryInfo.name.common}</h1>
               <FontAwesomeIcon className="card__dropdown" icon={faCaretDown} rotation={iconRotation}/>
             </div>
-            <p><b>Population:</b> {countryInfo.population}</p>
+            <p><b>Population:</b> {countryInfo.population.toLocaleString('pt-BR')}</p>
             <p><b>Capital:</b> {countryInfo.capital}</p>
             <p><b>Region:</b> {countryInfo.region}</p>
           </section>
