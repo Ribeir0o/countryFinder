@@ -26,3 +26,28 @@
         gap: 20px;
     }
 }
+
+.dark__mode{
+    *{
+        color: #efefef;
+        border-color: $border-color-darkTheme!important;
+    }
+    .App{
+        background-color: $dark-color;
+    }
+    .header{
+        background-color: $lighter-dark-color;
+    }
+    input, select{
+        background-color: $lighter-dark-color;
+        color: inherit;
+    }
+    input::placeholder{
+        color: inherit;
+    }
+
+    .card{
+        background-color: $lighter-dark-color;
+    }
+
+}
