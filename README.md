@@ -13,7 +13,7 @@
 - [x] Filter country by region
 - [x] Dark Mode
 
-# Build with
+# Built with
 
 - ReactJS
 - Scss
