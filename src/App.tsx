@@ -4,13 +4,28 @@ import Card from "./components/Card";
 import {useState, useEffect, useRef} from "react";
 import axios from "axios";
 
+type Filters = {
+  filterName: string;
+  filterRegion: string;
+}
+
+export type Country = {  
+name: {common:string};
+region: string;
+capital: string;
+population: number;
+flags: {svg: string}
+}
+
 const client = axios.create({
   baseURL: "https://restcountries.com/v3.1/"
 })
+
+
 function App() {
-  const [filterCountries, setFilterCountries] = useState({filterName: "", filterRegion: ""});
-  const [allCountries, setAllCountries] = useState([]);
-  const fetchDataRef = useRef(false);
+  const [filterCountries, setFilterCountries] = useState<Filters>({filterName: "", filterRegion: ""});
+  const [allCountries, setAllCountries] = useState<Country[]>();
+  const fetchDataRef = useRef<boolean>(false);
 
   useEffect(()=>{
     if(!fetchDataRef.current){
@@ -21,11 +36,11 @@ function App() {
     }
   }, []);
 
-  const handleFilterName = function (text){
+  const handleFilterName = function (text: string){
     setFilterCountries((prevState) => ({...prevState, filterName: text}))
   }
   
-  const handleFilterRegion = function(region){
+  const handleFilterRegion = function(region: string){
     setFilterCountries((prevState) => ({...prevState, filterRegion: region}))
   }
 
@@ -36,9 +51,9 @@ function App() {
       <main className="main__app">
         <SearchBar onFilterNameChange = {handleFilterName} onFilterRegionChange = {handleFilterRegion}/>
         <div className="card__container">
-          {allCountries.map(country =>{
-            const queryName = filterCountries.filterName?.toLowerCase()
-            const queryRegion = filterCountries.filterRegion?.toLowerCase();
+          {allCountries?.map(country =>{
+            const queryName = filterCountries.filterName.toLowerCase()
+            const queryRegion = filterCountries.filterRegion.toLowerCase();
             
             if(country.name.common.toLowerCase().includes(queryName) && country.region.toLowerCase().includes(queryRegion)){
               return <Card key={country.name.common} countryInfo={country}/>
