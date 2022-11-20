@@ -1,4 +1,9 @@
-function SearchBar(props) {
+type SearchBarProps = {
+    onFilterNameChange: (arg0: string)=> void;
+    onFilterRegionChange: (arg0: string)=> void;
+}
+
+function SearchBar(props: SearchBarProps) {
     return(
         <div className="search-bar">
             <input onChange={e => props.onFilterNameChange(e.target.value)}

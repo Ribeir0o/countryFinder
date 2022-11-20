@@ -7,7 +7,6 @@ function Header (){
         document.body.classList.toggle("dark__mode")
     }
 
-
     return(
         <header className="header">
             <h1 className="header__logo">Country<span>Finder</span></h1>
