@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCaretDown} from '@fortawesome/free-solid-svg-icons';
-import type { Country } from '../../App';
+import type { Country } from '../../types';
 
 
 type CardProps = {

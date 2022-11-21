@@ -1,49 +1,21 @@
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import Card from "./components/Card";
-import {useState, useEffect, useRef} from "react";
-import axios from "axios";
-
-type Filters = {
-  filterName: string;
-  filterRegion: string;
-}
-
-export type Country = {  
-name: {common:string};
-region: string;
-capital: string;
-population: number;
-flags: {svg: string}
-}
-
-const client = axios.create({
-  baseURL: "https://restcountries.com/v3.1/"
-})
-
+import {useState} from "react";
+import useFetch from "./hooks/useFetch";
+import {Filters, Country} from './types';
 
 function App() {
-  const [filterCountries, setFilterCountries] = useState<Filters>({filterName: "", filterRegion: ""});
-  const [allCountries, setAllCountries] = useState<Country[]>();
-  const fetchDataRef = useRef<boolean>(false);
-
-  useEffect(()=>{
-    if(!fetchDataRef.current){
-      client.get("all").then(res =>{
-        setAllCountries(res.data);
-      }).catch(error => console.log(error))
-      fetchDataRef.current = true;
-    }
-  }, []);
+  const [filterCountries, setFilterCountries] = useState<Filters>();
+  const data = (useFetch<Country[]>('https://restcountries.com/v3.1/all') as Country[])
 
   const handleFilterName = function (text: string){
-    setFilterCountries((prevState) => ({...prevState, filterName: text}))
+    setFilterCountries((prevState) => ({filterRegion: (prevState as Filters).filterRegion, filterName: text}))
   }
   
   const handleFilterRegion = function(region: string){
-    setFilterCountries((prevState) => ({...prevState, filterRegion: region}))
+    setFilterCountries((prevState) => ({filterName: (prevState as Filters).filterName, filterRegion: region}))
   }
-
   
   return (
     <div className="App">
@@ -51,11 +23,11 @@ function App() {
       <main className="main__app">
         <SearchBar onFilterNameChange = {handleFilterName} onFilterRegionChange = {handleFilterRegion}/>
         <div className="card__container">
-          {allCountries?.map(country =>{
-            const queryName = filterCountries.filterName.toLowerCase()
-            const queryRegion = filterCountries.filterRegion.toLowerCase();
+          {data?.map(country =>{
+            const queryName = filterCountries?.filterName?.toLowerCase()
+            const queryRegion = filterCountries?.filterRegion?.toLowerCase();
             
-            if(country.name.common.toLowerCase().includes(queryName) && country.region.toLowerCase().includes(queryRegion)){
+            if(country.name.common.toLowerCase().includes((queryName as string)) && country.region.toLowerCase().includes((queryRegion as string))){
               return <Card key={country.name.common} countryInfo={country}/>
             }
             return null;
