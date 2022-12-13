@@ -5,7 +5,7 @@ import {Filters} from './types';
 import CardContainer from "./components/CardContainer";
 
 function App() {
-  const [filterCountries, setFilterCountries] = useState<Filters>();
+  const [filterCountries, setFilterCountries] = useState<Filters>({filterName: "", filterRegion: ""});
 
   const handleFilterName = function (text: string){
     setFilterCountries((prevState) => ({filterRegion: (prevState as Filters).filterRegion, filterName: text}))
